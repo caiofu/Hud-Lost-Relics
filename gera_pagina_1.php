@@ -1,4 +1,12 @@
 <?php
+include "classes/Autoload.php";
+//Contador
+$Contador = new Contador();
+$Contador->select("*");
+$quantidade = $Contador->getQuantidadeGerado();
+$quantidade = $quantidade +1;
+$Contador->update(['quantidadeGerado' => $quantidade], "idContador = 1");
+
 
 $conteudo_pagina = '';
 $conteudo_js = '';
@@ -257,6 +265,8 @@ if ($zip->open($nome_zip, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) 
 
     // Remove o arquivo ZIP após o download (opcional)
     unlink($nome_zip);
+
+
 
 } else {
     echo 'Não foi possível criar o arquivo ZIP.';
