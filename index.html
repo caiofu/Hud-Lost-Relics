@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUD Generator | Lost Relics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="dash.css">
+
+    <!-- SWEETALERT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.min.css">
+
+    <!-- QUILL -->
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+</head>
+
+<body style="background-color: #212529;">
+    <div class="container ">
+        <div class="row mt-4 justify-content-center">
+
+            <div class="col-md-8 col-sm-12 mb-4">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Welcome to the HUD generation page for Twitch with Lost
+                            Relics statistics!</h1>
+                        <p class="card-text mt-4">
+                            My name is <a href="https://www.linkedin.com/in/caio-furegati/" target="_blank">Caio Furegati</a>. I created this page with great care for the community of streamers
+                            and Lost Relics players. Now you can easily display game statistics in your streams, making
+                            your experience even more interactive and informative. My goal is to make content creators'
+                            lives easier by helping them showcase this information in real time.
+                        </p>
+                        <p class="card-text">
+                            If you enjoyed the tool and feel comfortable, any donation would be greatly appreciated!
+                            This will help me continue improving and adding new features for the community. Below are
+                            the addresses of my cryptocurrency wallets, in case you'd like to contribute:
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="row g-3 align-items-center">
+                                    
+                                    <div class="col-auto">
+                                        
+                                        <label for="enj" class="col-form-label"><strong>ENJ (Matrixchain):</strong> </label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="enj" class="form-control"
+                                            value="efUmb9o3fbQvRALrNWA8gFm34EfCYyd2U3VU2sZGEjaU1B7Qu" readonly>
+                                    </div>
+                                    <div class="col-auto">
+                                        <img src="imagens/qrcode-enjj.png" class="img-fluid" width="53" alt="">
+
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="enj" class="col-form-label"><strong>PAYPAL:</strong> </label>
+                                    </div>
+                                    <div class="col-10">
+                                        <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                            <input type="hidden" name="hosted_button_id" value="DSRL2T6VXVQGS" />
+                                            <input type="image"
+                                                src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                                                border="0" name="submit"
+                                                title="PayPal - The safer, easier way to pay online!"
+                                                alt="Donate with PayPal button" />
+                                            <img alt="" border="0" src="https://www.paypal.com/en_BR/i/scr/pixel.gif"
+                                                width="1" height="1" />
+                                        </form>
+                                    </div>
+
+                                </div>
+
+
+                            </li>
+
+                        </ul>
+                        <hr>
+                        <div>
+                            <h3>My contact methods</h3>
+                            <div class="mb-2">
+                                <strong>Discord:</strong> CaioFu#4706
+                            </div>
+                            <div class="mb-2">
+                                <strong>E-mail:</strong> <a href="mailto:caiofuu@gmail.com">caiofuu@gmail.com</a>
+                            </div>
+                            <div>
+                                <strong>LinkedIn:</strong> 
+                                <a href="https://www.linkedin.com/in/caio-furegati/" target="_blank" rel="noopener noreferrer">Caio Furegati</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <p class="card-text mt-4">
+                            Thank you for being part of this journey, and may your Lost Relics adventures be epic!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-12 mb-4 ">
+                <div class="card">
+                    <div class="card-header">
+                        HUD Generator - Lost Relics
+                    </div>
+
+                    <div class="card-body">
+                        <div>
+                            <p class="card-text mt-4">
+                            <h5 class="card-title text-center"> This system will generate a web page that will make a
+                                request to the Lost Relics web service, retrieving your data in real time
+                            </h5>
+
+                            </p>
+                        </div>
+                        <hr>
+                        <form action="gera_pagina_1.php" method="POST">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtLevel"
+                                    name="swtLevel" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Activate level
+                                    progress</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtFishing"
+                                    name="swtFishing" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Fishing</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtMining"
+                                    name="swtMining" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Mining</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtScavenging"
+                                    name="swtScavenging" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Scavenging</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtWoodCutting"
+                                    name="swtWoodCutting" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Woodcutting</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtAlchemy"
+                                    name="swtAlchemy">
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Activate Alchemy</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtCooking"
+                                    name="swtCooking">
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Activate Cooking</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtEngineering"
+                                    name="swtEngineering">
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Engineering</label>
+                            </div>
+
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="swtForging"
+                                    name="swtForging">
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Activate
+                                    Forging</label>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioTipo" id="flexRadioDefault1"
+                                    value="twitch">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Use in OBS for Twitch
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioTipo" id="flexRadioDefault2"
+                                    value="navegador" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Use in the browser
+                                </label>
+                            </div>
+                            <div><small style="font-style: italic;">The only difference between the two options is that,
+                                    in OBS, the background is transparent, while in the browser the background is
+                                    gray</small></div>
+
+
+                            <hr>
+                            <blockquote class="blockquote mb-0 ">
+                                <button type="submit" class="btn btn-primary">GENERATE PAGE</button>
+                                <br><br>
+                                <footer class="blockquote-footer">Click on 'GENERATE PAGE' to download the files
+                                </footer>
+                            </blockquote>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-12">
+                <div class="accordion mb-4" id="accordionTutorials">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#tutorial" aria-expanded="false" aria-controls="tutorial">
+                               <h4> How to Install - Tutorial</h4>
+                            </button>
+                        </h2>
+                        <div id="tutorial" class="accordion-collapse collapse " data-bs-parent="#accordionTutorials">
+                            <div class="accordion-body">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div style="text-align: center;">
+                                            After generating the files above, follow the steps below to ensure the HUD
+                                            works as
+                                            expected. The next steps involve installing a program that allows the
+                                            creation of a web
+                                            server so the page functions properly. It's important to note that this
+                                            feature only works
+                                            for members.
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <span class="passos"> 1- First, you need to enable this option within Lost
+                                                Relics:</span>
+                                            <br>
+                                            <img src="imagens/query-api.png" class="img-fluid" alt="">
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <div>
+                                            <span class="passos"> 2 - It is necessary to install a program for the page
+                                                to work, as it
+                                                will generate a web server:</span> <br>
+                                            Website: <a href="https://laragon.org/download/">Laragon</a><br>
+                                            Download link: <a
+                                                href="https://github.com/leokhoa/laragon/releases/download/6.0.0/laragon-wamp.exe">Download
+                                                Laragon - Full (173 MB)</a><br>
+                                            <br>
+                                            <p class="passos">After installing and opening Laragon, follow the steps
+                                                below</p>
+                                            <br>
+                                            <span class="passos" style="color: red;">Start the service by clicking the
+                                                'Start All'
+                                                button:</span><br>
+                                            <img src="imagens/iniciar_tudo.png" class="img-fluid" alt="">
+                                            <hr>
+                                            <br><br>
+                                            <span class="passos" style="color: red;">After clicking 'ROOT', a folder
+                                                will open where you
+                                                need to extract the files downloaded by the generator</span>
+                                            <img src="imagens/root.png" class="img-fluid" alt="">
+                                            <br>
+                                            <hr>
+                                            <span class="passos" style="color: red;">Directory after
+                                                extraction:</span><br>
+                                            <img src="imagens/www.png" alt="">
+                                            <br>
+                                            <hr>
+                                            <span class="passos">After extracting the files to the mentioned folder, if
+                                                you followed all
+                                                the steps correctly, you will be able to see your data when you access
+                                                the link below.
+                                                Please remember that the game Lost Relics needs to be open and the
+                                                'Query API' option
+                                                must be enabled.</span>
+                                            <br>
+                                            <br>
+                                            <div>
+                                                Link: <a
+                                                    href="http://localhost/lostRelics">http://localhost/lostRelics</a>
+                                            </div>
+                                        </div>
+
+
+                                        <hr>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#obs" aria-expanded="false" aria-controls="obs">
+                                How to set up in OBS
+                            </button>
+                        </h2>
+                        <div id="obs" class="accordion-collapse collapse" data-bs-parent="#accordionTutorials">
+                            <div class="accordion-body">
+                               <div>
+                                    <img src="" alt="">
+                               </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                </div>
+
+            </div>
+
+            <!-- MESSAGE -->
+
+            <div class="col-md-8 col-sm-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Leave your comment</h2>
+                    </div>
+                    <div class="card-body">
+                        <form onsubmit="sendMessage(); return false;">
+                            <div class="mb-2 col-md-6 col-sm-12">
+                                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                              </div>
+                              <div class="mb-2 col-md-6 col-sm-12">
+                                <label for="exampleFormControlTextarea1" class="form-label">Nickname in Lost Relics</label>
+                                <input type="text" class="form-control" id="nickname" required>
+                              </div>
+                          
+                          
+                        <!-- Toolbar -->
+                        <div id="toolbar">
+                            <button class="ql-bold">Negrito</button>
+                            <button class="ql-italic">Itálico</button>
+                            <button class="ql-underline">Sublinhado</button>
+                            <button class="ql-list" value="ordered">Lista Ordenada</button>
+                            <button class="ql-list" value="bullet">Lista Não Ordenada</button>
+                        </div>
+                        <!-- Editor -->
+                        <div id="editor" style="height: 110px; " class="form-control"  ></div>
+                        <small style="font-style: italic; color: red; display: none;" id="alertMsg">Mensagem não pode ser vazia</small>
+                        <br>
+                        <button class="btn btn-primary mt-3" type="submit">Send</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENT -->
+            <div class="col-md-8 col-sm-12">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h2>Comments</h2>
+                    </div>
+                    <div class="card-body" id="listMensagens">
+                      
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<br>
+ <!-- Footer -->
+ <footer class="bg-dark text-white text-center text-lg-start mt-auto mt-4">
+            
+                
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(95, 92, 92, 0.2);">
+        Developed by 
+    <a class="text-white" href="https://www.linkedin.com/in/caio-furegati/" target="_blank">Caio Furegati</a>
+    </div>
+</footer>
+    <script src="js/dash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <!-- SWEETALERT -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>

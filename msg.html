@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box de Mensagens</title>
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Box de Mensagens</h2>
+        <div class="card">
+            <div class="card-header">
+                Editor de Texto
+            </div>
+            <div class="card-body">
+                <!-- Toolbar -->
+                <div id="toolbar">
+                    <button class="ql-bold">Negrito</button>
+                    <button class="ql-italic">Itálico</button>
+                    <button class="ql-underline">Sublinhado</button>
+                    <button class="ql-list" value="ordered">Lista Ordenada</button>
+                    <button class="ql-list" value="bullet">Lista Não Ordenada</button>
+                </div>
+                <!-- Editor -->
+                <div id="editor" style="height: 200px;" class="form-control"></div>
+                <button class="btn btn-primary mt-3" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inicializa o Quill
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: '#toolbar'
+            }
+        });
+
+        function sendMessage() {
+            const message = quill.root.innerHTML; // Captura o conteúdo HTML
+            console.log("Mensagem enviada:", message);
+            quill.setText(''); // Limpa o editor após enviar
+        }
+    </script>
+</body>
+</html>
