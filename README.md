@@ -1,4 +1,4 @@
-🎮 #HUD para Lost Relics
+🎮 # HUD para Lost Relics
 
 Este projeto é uma HUD interativa para Lost Relics, desenvolvida para ser utilizada em transmissões ao vivo na Twitch. A HUD exibe estatísticas do jogo em tempo real, utilizando uma API local para capturar e exibir informações essenciais de forma dinâmica.
 
@@ -22,7 +22,7 @@ HTML + CSS para interface responsiva
 🚀 Contribuições e sugestões são bem-vindas!
 ----------------------------------------------
 
-🎮 #HUD for Lost Relics
+🎮 # HUD for Lost Relics
 This project is an interactive HUD for Lost Relics, designed for use in Twitch live streams. The HUD displays real-time game statistics using a local API to dynamically capture and present essential information.
 
 🔹 Main features:
